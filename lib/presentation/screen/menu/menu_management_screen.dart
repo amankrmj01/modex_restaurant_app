@@ -16,18 +16,20 @@ class MenuManagementScreen extends StatelessWidget {
     return BlocProvider.value(
       value: context.read<MenuMgmtBloc>()..add(FetchMenu()),
       child: Scaffold(
+        backgroundColor: Colors.transparent,
         appBar: AppBar(
           title: Text(
             'Manage Menu',
-            style: GoogleFonts.poppins(
-              fontWeight: FontWeight.w600,
+            style: GoogleFonts.inter(
+              fontWeight: FontWeight.w700,
               color: Colors.white,
             ),
           ),
           backgroundColor: const Color(0xFF000428),
         ),
         body: Container(
-          height: MediaQuery.of(context).size.height,
+          width: double.infinity,
+          height: double.infinity,
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
