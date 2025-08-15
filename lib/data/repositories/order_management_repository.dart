@@ -127,7 +127,7 @@ class OrderManagementRepository {
   Future<List<OrderModel>> fetchIncomingOrders() async {
     await Future.delayed(const Duration(seconds: 1));
     // Return only orders that are still 'Pending'
-    return _incomingOrders.where((order) => order.status == 'Pending').toList();
+    return _incomingOrders;
   }
 
   // NEW: Method to accept an order
@@ -136,7 +136,9 @@ class OrderManagementRepository {
     final index = _incomingOrders.indexWhere((o) => o.id == orderId);
     if (index != -1) {
       // In a real app, you'd update the database. Here we remove it from the list.
-      _incomingOrders.removeAt(index);
+      _incomingOrders[index] = _incomingOrders[index].copyWith(
+        status: 'Accepted',
+      );
     } else {
       throw Exception('Order not found');
     }

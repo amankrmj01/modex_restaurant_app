@@ -182,7 +182,7 @@ class _AddEditMenuItemScreenState extends State<AddEditMenuItemScreen> {
         if (value == null || value.isEmpty) {
           return 'Please enter a $label';
         }
-        if (label == 'Price' && double.tryParse(value) == null) {
+        if (label == 'Price ₹' && double.tryParse(value) == null) {
           return 'Please enter a valid number';
         }
         return null;

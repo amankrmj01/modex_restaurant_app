@@ -1,4 +1,3 @@
-// presentation/screens/menu/menu_management_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,11 +19,15 @@ class MenuManagementScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             'Manage Menu',
-            style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
+            style: GoogleFonts.poppins(
+              fontWeight: FontWeight.w600,
+              color: Colors.white,
+            ),
           ),
           backgroundColor: const Color(0xFF000428),
         ),
         body: Container(
+          height: MediaQuery.of(context).size.height,
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
@@ -83,64 +86,90 @@ class MenuManagementScreen extends StatelessWidget {
     MenuItemModel item,
     bool isSubmitting,
   ) {
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8.0),
-      color: Colors.white.withOpacity(0.1),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(
-          vertical: 10,
-          horizontal: 16,
+    return Container(
+      padding: const EdgeInsets.all(16.0),
+      margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(15),
+        border: Border(
+          top: BorderSide(color: Colors.blue.shade300, width: 2),
+          left: BorderSide(color: Colors.blue.shade300, width: 1),
         ),
-        title: Text(
-          item.name,
-          style: GoogleFonts.poppins(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.blue.withValues(alpha: 0.1),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
           ),
-        ),
-        subtitle: Text(
-          item.description,
-          style: GoogleFonts.poppins(color: Colors.white70),
-        ),
-        trailing: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              '\$${item.price.toStringAsFixed(2)}',
-              style: GoogleFonts.poppins(
-                color: Colors.green.shade300,
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Header with menu item name and price
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: Text(
+                  item.name,
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
               ),
-            ),
-            const SizedBox(width: 8),
-            IconButton(
-              icon: const Icon(Icons.edit, color: Colors.white70),
-              onPressed: isSubmitting
-                  ? null
-                  : () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (_) => AddEditMenuItemScreen(
-                            menuItem: item,
-                            menuMgmtBloc: context.read<MenuMgmtBloc>(),
+              Text(
+                '₹${item.price.toStringAsFixed(2)}',
+                style: GoogleFonts.poppins(
+                  color: Colors.green.shade300,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          // Description
+          Text(
+            item.description,
+            style: GoogleFonts.poppins(color: Colors.white70),
+          ),
+          const SizedBox(height: 16),
+          // Action buttons
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              IconButton(
+                icon: const Icon(Icons.edit, color: Colors.white70),
+                onPressed: isSubmitting
+                    ? null
+                    : () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => AddEditMenuItemScreen(
+                              menuItem: item,
+                              menuMgmtBloc: context.read<MenuMgmtBloc>(),
+                            ),
                           ),
-                        ),
-                      );
-                    },
-            ),
-            IconButton(
-              icon: Icon(Icons.delete, color: Colors.red.shade300),
-              onPressed: isSubmitting
-                  ? null
-                  : () {
-                      context.read<MenuMgmtBloc>().add(DeleteMenuItem(item.id));
-                    },
-            ),
-          ],
-        ),
+                        );
+                      },
+              ),
+              IconButton(
+                icon: Icon(Icons.delete, color: Colors.red.shade300),
+                onPressed: isSubmitting
+                    ? null
+                    : () {
+                        context.read<MenuMgmtBloc>().add(
+                          DeleteMenuItem(item.id),
+                        );
+                      },
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

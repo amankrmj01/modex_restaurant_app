@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:modex_restaurant_app/presentation/screen/home/home_screen.dart';
 import '../../../bloc/auth/restaurant_auth_bloc.dart';
 import '../../../bloc/auth/restaurant_auth_event.dart';
 import '../../../bloc/auth/restaurant_auth_state.dart';
-import '../dashboard/order_dashboard_screen.dart';
 
 class RestaurantLoginScreen extends StatelessWidget {
   final _emailController = TextEditingController();
@@ -32,11 +32,11 @@ class RestaurantLoginScreen extends StatelessWidget {
             if (state is RestaurantAuthSuccess) {
               // Navigate to the order dashboard on success
               Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (_) => OrderDashboardScreen()),
+                MaterialPageRoute(builder: (_) => HomeScreen()),
               );
             } else if (state is RestaurantAuthFailure) {
               Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (_) => OrderDashboardScreen()),
+                MaterialPageRoute(builder: (_) => HomeScreen()),
               );
             }
           },
