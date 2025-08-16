@@ -1,5 +1,3 @@
-// ----------------------------------------------------------------
-// bloc/auth/restaurant_auth_event.dart
 import 'package:equatable/equatable.dart';
 
 abstract class RestaurantAuthEvent extends Equatable {

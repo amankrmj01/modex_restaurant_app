@@ -1,5 +1,3 @@
-// ----------------------------------------------------------------
-// bloc/menu/menu_mgmt_bloc.dart
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/repositories/menu_management_repository.dart';
 import 'menu_mgmt_event.dart';
@@ -36,7 +34,7 @@ class MenuMgmtBloc extends Bloc<MenuMgmtEvent, MenuMgmtState> {
     try {
       await menuRepository.addMenuItem(event.item);
       emit(state.copyWith(isSubmitting: false));
-      add(FetchMenu()); // Refresh the list
+      add(FetchMenu());
     } catch (e) {
       emit(state.copyWith(error: e.toString(), isSubmitting: false));
     }
@@ -50,7 +48,7 @@ class MenuMgmtBloc extends Bloc<MenuMgmtEvent, MenuMgmtState> {
     try {
       await menuRepository.updateMenuItem(event.item);
       emit(state.copyWith(isSubmitting: false));
-      add(FetchMenu()); // Refresh the list
+      add(FetchMenu());
     } catch (e) {
       emit(state.copyWith(error: e.toString(), isSubmitting: false));
     }
@@ -64,7 +62,7 @@ class MenuMgmtBloc extends Bloc<MenuMgmtEvent, MenuMgmtState> {
     try {
       await menuRepository.deleteMenuItem(event.itemId);
       emit(state.copyWith(isSubmitting: false));
-      add(FetchMenu()); // Refresh the list
+      add(FetchMenu());
     } catch (e) {
       emit(state.copyWith(error: e.toString(), isSubmitting: false));
     }

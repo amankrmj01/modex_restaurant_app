@@ -95,7 +95,6 @@ class _AddEditMenuItemScreenState extends State<AddEditMenuItemScreen> {
             child: Column(
               children: [
                 const SizedBox(height: 24),
-                // Header image/icon
                 CircleAvatar(
                   radius: 40,
                   backgroundColor: Colors.amber.shade700,

@@ -1,5 +1,3 @@
-// ----------------------------------------------------------------
-// bloc/menu/menu_mgmt_event.dart
 import 'package:equatable/equatable.dart';
 import '../../data/models/menu_item_model.dart';
 

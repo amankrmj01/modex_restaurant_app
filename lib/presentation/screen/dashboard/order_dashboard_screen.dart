@@ -70,7 +70,6 @@ class OrderDashboardScreen extends StatelessWidget {
                 );
               }
               if (state is IncomingOrdersLoaded) {
-                // Filter to show only pending orders
                 final pendingOrders = state.orders
                     .where((order) => order.status.toLowerCase() == 'pending')
                     .toList();
@@ -159,7 +158,6 @@ class OrderDashboardScreen extends StatelessWidget {
           ),
           const Divider(color: Colors.white24, height: 24),
 
-          // Item List
           ...order.items.map(
             (item) => Padding(
               padding: const EdgeInsets.symmetric(vertical: 4.0),
@@ -188,7 +186,6 @@ class OrderDashboardScreen extends StatelessWidget {
           ),
           const Divider(color: Colors.white24, height: 24),
 
-          // Action Buttons
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

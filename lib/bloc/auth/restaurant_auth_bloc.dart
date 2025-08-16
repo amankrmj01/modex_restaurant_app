@@ -1,5 +1,3 @@
-// ----------------------------------------------------------------
-// bloc/auth/restaurant_auth_bloc.dart
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/repositories/restaurant_auth_repository.dart';
 import 'restaurant_auth_event.dart';

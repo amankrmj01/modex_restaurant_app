@@ -109,7 +109,6 @@ class MenuManagementScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header with menu item name and price
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -134,13 +133,11 @@ class MenuManagementScreen extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 8),
-          // Description
           Text(
             item.description,
             style: GoogleFonts.poppins(color: Colors.white70),
           ),
           const SizedBox(height: 16),
-          // Action buttons
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [

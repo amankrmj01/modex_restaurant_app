@@ -223,7 +223,6 @@ class AcceptedOrdersScreen extends StatelessWidget {
           ),
           const Divider(color: Colors.white24, height: 24),
 
-          // Item List
           ...order.items.map(
             (item) => Padding(
               padding: const EdgeInsets.symmetric(vertical: 4.0),

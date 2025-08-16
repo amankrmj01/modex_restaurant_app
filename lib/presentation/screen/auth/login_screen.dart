@@ -30,7 +30,6 @@ class RestaurantLoginScreen extends StatelessWidget {
         child: BlocConsumer<RestaurantAuthBloc, RestaurantAuthState>(
           listener: (context, state) {
             if (state is RestaurantAuthSuccess) {
-              // Navigate to the order dashboard on success
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute(builder: (_) => HomeScreen()),
               );
@@ -42,7 +41,6 @@ class RestaurantLoginScreen extends StatelessWidget {
           },
           builder: (context, state) {
             if (state is RestaurantAuthLoading) {
-              // Styled loading indicator
               return Center(
                 child: Container(
                   padding: const EdgeInsets.all(20),
@@ -73,7 +71,6 @@ class RestaurantLoginScreen extends StatelessWidget {
               );
             }
 
-            // The main login form UI
             return SafeArea(
               child: Center(
                 child: SingleChildScrollView(
@@ -113,14 +110,13 @@ class RestaurantLoginScreen extends StatelessWidget {
                             ],
                           ),
                           child: const Icon(
-                            Icons.storefront, // Icon for a restaurant
+                            Icons.storefront,
                             color: Colors.white,
                             size: 40,
                           ),
                         ),
                         const SizedBox(height: 24),
 
-                        // Welcome Text
                         Text(
                           'Restaurant Portal',
                           style: GoogleFonts.poppins(
@@ -139,7 +135,6 @@ class RestaurantLoginScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 32),
 
-                        // Email Field
                         _buildTextField(
                           controller: _emailController,
                           labelText: 'Restaurant Email',
@@ -147,7 +142,6 @@ class RestaurantLoginScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 20),
 
-                        // Password Field
                         _buildTextField(
                           controller: _passwordController,
                           labelText: 'Password',
@@ -156,7 +150,6 @@ class RestaurantLoginScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 32),
 
-                        // Login Button
                         Container(
                           width: double.infinity,
                           height: 56,
@@ -211,7 +204,6 @@ class RestaurantLoginScreen extends StatelessWidget {
     );
   }
 
-  // Helper widget to reduce code duplication for TextFields
   Widget _buildTextField({
     required TextEditingController controller,
     required String labelText,

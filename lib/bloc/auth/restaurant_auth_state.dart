@@ -1,5 +1,3 @@
-// ----------------------------------------------------------------
-// bloc/auth/restaurant_auth_state.dart
 import 'package:equatable/equatable.dart';
 
 abstract class RestaurantAuthState extends Equatable {

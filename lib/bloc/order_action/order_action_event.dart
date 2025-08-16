@@ -1,5 +1,3 @@
-// ----------------------------------------------------------------
-// bloc/orders/order_action_state.dart
 import 'package:equatable/equatable.dart';
 
 abstract class OrderActionState extends Equatable {

@@ -1,13 +1,10 @@
-// ----------------------------------------------------------------
-// bloc/menu/menu_mgmt_state.dart
 import 'package:equatable/equatable.dart';
 import '../../data/models/menu_item_model.dart';
 
-// Using a single state class to manage all menu states
 class MenuMgmtState extends Equatable {
   final List<MenuItemModel> menuItems;
-  final bool isLoading; // For fetching the list
-  final bool isSubmitting; // For add/update/delete actions
+  final bool isLoading;
+  final bool isSubmitting;
   final String? error;
 
   const MenuMgmtState({

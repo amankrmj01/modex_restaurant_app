@@ -1,5 +1,3 @@
-// ----------------------------------------------------------------
-// bloc/orders/incoming_orders_state.dart
 import 'package:equatable/equatable.dart';
 import '../../data/models/order_model.dart';
 

@@ -1,4 +1,3 @@
-// data/models/menu_item_model.dart
 import 'package:equatable/equatable.dart';
 
 class MenuItemModel extends Equatable {

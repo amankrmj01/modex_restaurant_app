@@ -1,8 +1,6 @@
-// data/repositories/menu_management_repository.dart
 import '../models/menu_item_model.dart';
 
 class MenuManagementRepository {
-  // Mock database of the restaurant's menu items
   final List<MenuItemModel> _menuItems = [
     const MenuItemModel(
       id: 'm1',

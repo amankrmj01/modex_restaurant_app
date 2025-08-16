@@ -48,11 +48,8 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
         children: const [
-          // Orders Page
           OrderDashboardScreen(),
-          // Menu Page
           MenuManagementScreen(),
-          // Accepted Orders Page
           AcceptedOrdersScreen(),
         ],
       ),

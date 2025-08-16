@@ -1,5 +1,3 @@
-// ----------------------------------------------------------------
-// bloc/orders/order_action_event.dart
 import 'package:equatable/equatable.dart';
 
 abstract class OrderActionEvent extends Equatable {
